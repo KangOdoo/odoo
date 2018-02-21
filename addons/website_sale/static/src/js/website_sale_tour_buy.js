@@ -65,11 +65,6 @@ tour.register('shop_buy_product', {
             trigger: 'a[href*="/shop/checkout"]',
         },
         {
-            content: "Confirm checkout",
-            extra_trigger: "div.all_shipping .panel",
-            trigger: 'a[href="/shop/confirm_order"]',
-        },
-        {
             content: "select payment",
             trigger: '#payment_method label:contains("Wire Transfer")',
         },

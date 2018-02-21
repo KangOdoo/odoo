@@ -694,21 +694,21 @@
 
             <div class="progress-wizard">
                 <a t-att-href="step&gt;=10 and '/shop/cart'">
-                  <div id="wizard-step10" t-att-class="'col-xs-2 progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                  <div id="wizard-step10" t-att-class="'col-xs-3 col-sm-2 progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
                     <div class="progress"><div class="progress-bar"></div></div>
                     <span class="progress-wizard-dot"></span>
                     <div class="text-center progress-wizard-steplabel">Review Order</div>
                   </div>
                 </a>
                 <a t-att-href="step&gt;=20 and '/shop/checkout'">
-                  <div id="wizard-step20" t-att-class="'col-xs-2 progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                  <div id="wizard-step20" t-att-class="'col-xs-3 col-sm-2 progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
                     <div class="progress"><div class="progress-bar"></div></div>
                     <span class="progress-wizard-dot"></span>
                     <div class="text-center progress-wizard-steplabel">Address</div>
                   </div>
                 </a>
                 <a t-att-href="step&gt;=40 and '/shop/payment'">
-                  <div id="wizard-step40" t-att-class="'col-xs-2 last_step progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
+                  <div id="wizard-step40" t-att-class="'col-xs-3 col-sm-2 last_step progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
                     <div class="progress"><div class="progress-bar"></div></div>
                     <span class="progress-wizard-dot"></span>
                     <div class="text-center progress-wizard-steplabel">Confirm Order</div>
@@ -790,7 +790,7 @@
     <template id="extra_info_option" name="Extra Step Option" inherit_id="wizard_checkout" active="False" customize_show="True">
 
         <xpath expr="//div[@id='wizard-step20']" position="after">
-            <div id="wizard-step30" t-att-class="'col-xs-2 progress-wizard-step %s' % (step == 30 and 'active' or step&gt;30 and 'complete' or 'disabled')">
+            <div id="wizard-step30" t-att-class="'col-xs-3 col-sm-2 progress-wizard-step %s' % (step == 30 and 'active' or step&gt;30 and 'complete' or 'disabled')">
                 <div class="progress"><div class="progress-bar"></div></div>
                     <a t-att-href="step&gt;=30 and '/shop/extra_info'" class="progress-wizard-dot"></a>
                 <div class="text-center progress-wizard-steplabel">Extra Info</div>
@@ -1426,8 +1426,9 @@
     </template>
 
     <template id="payment_sale_note" inherit_id="payment" name="Accept Terms &amp; Conditions" customize_show="True" active="False">
-        <xpath expr="//div[@id='payment_method']" position="before">
-            <div class="oe_accept_cgv_button">
+        <xpath expr="//div[@id='payment_method'][contains(@class, 'js_payment')]" position="after">
+            <div class="clearfix"/>
+            <div class="oe_accept_cgv_button pull-right">
                 <label>
                     <input type="checkbox" checked="checked" id="checkbox_cgv" />
                     I agree to the <a target='_BLANK' href='/shop/terms'>terms &amp; conditions</a>
